@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bestsellers - ÉVORA Luxury Jewelry</title>
+    <meta name="description"
+        content="Discover our bestselling luxury jewelry pieces at ÉVORA. Handcrafted pieces that customers love.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.svg">
+    <meta name="theme-color" content="#5A3E28">
+</head>
+
+<body class="bg-evora-beige">
+
+    <!-- Header Component -->
+    <div id="header"></div>
+
+    <!-- Breadcrumb Navigation -->
+    <section class="py-4 px-4 sm:px-6 md:px-8 bg-evora-beige">
+        <div class="max-w-7xl mx-auto">
+            <nav class="flex items-center space-x-2 text-sm">
+                <a href="index.html" class="text-primary hover:text-evora-brown transition-colors duration-200">HOME</a>
+                <span class="text-primary">/</span>
+                <span class="text-primary font-medium">Bestsellers</span>
+            </nav>
+        </div>
+    </section>
+
+    <!-- Hero Section -->
+    <section class="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-evora-beige">
+        <div class="max-w-7xl mx-auto text-center">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-primary mb-4">BESTSELLERS</h1>
+            <p class="text-sm sm:text-base md:text-lg text-primary font-light max-w-2xl mx-auto">
+                Dermatologist-tested and clinically proven. Meet the bestsellers, aka. best friends.
+            </p>
+        </div>
+    </section>
+
+    <!-- Filter and Sort Section -->
+    <section class="py-6 px-4 sm:px-6 md:px-8 bg-evora-beige border-b border-gray-200">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+                <!-- Filter Buttons -->
+                <div class="flex flex-wrap gap-2">
+                    <button
+                        class="filter-btn active px-4 py-2 text-sm font-medium text-primary bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        data-filter="all">
+                        Shop All
+                    </button>
+                    <button
+                        class="filter-btn px-4 py-2 text-sm font-medium text-primary bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        data-filter="rings">
+                        Rings
+                    </button>
+                    <button
+                        class="filter-btn px-4 py-2 text-sm font-medium text-primary bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        data-filter="necklaces">
+                        Necklaces
+                    </button>
+                    <button
+                        class="filter-btn px-4 py-2 text-sm font-medium text-primary bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        data-filter="bracelets">
+                        Bracelets
+                    </button>
+                    <button
+                        class="filter-btn px-4 py-2 text-sm font-medium text-primary bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        data-filter="earrings">
+                        Earrings
+                    </button>
+                    <button
+                        class="filter-btn px-4 py-2 text-sm font-medium text-primary bg-white border border-gray-300 rounded-md hover:bg-gray-50 transition-colors duration-200"
+                        data-filter="sets">
+                        Sets
+                    </button>
+                </div>
+
+                <!-- Sort Dropdown -->
+                <div class="flex items-center space-x-4">
+                    <label for="sort-select" class="text-sm font-medium text-primary">Sort by:</label>
+                    <select id="sort-select"
+                        class="px-3 py-2 text-sm border border-gray-300 rounded-md bg-white text-primary focus:outline-none focus:ring-2 focus:ring-evora-brown focus:border-transparent">
+                        <option value="best-selling">Best selling</option>
+                        <option value="new">New</option>
+                        <option value="price-low-high">Price, low to high</option>
+                        <option value="price-high-low">Price, high to low</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Grid Section -->
+    <section class="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-evora-beige">
+        <div class="max-w-7xl mx-auto">
+            <!-- Products Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 md:gap-8"
+                id="products-grid">
+
+                <!-- Product 1 - Nourishing Face Oil -->
+                <div class="product-card group cursor-pointer" data-category="necklaces" data-price="98">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_1.jpg" alt="Nourishing Face Oil"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_2.jpg" alt="Nourishing Face Oil"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Nourishing Face Oil</h3>
+                        <p class="text-xs text-gray-600">Radiance Enhancing Nordic Super Berries</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€98</span>
+                                <span class="text-xs text-gray-500">(20)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 - Hyaluronic Acid Face Serum -->
+                <div class="product-card group cursor-pointer" data-category="serums" data-price="94">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_2.jpg" alt="Hyaluronic Acid Face Serum"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_3.jpg" alt="Hyaluronic Acid Face Serum"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Hyaluronic Acid Face Serum</h3>
+                        <p class="text-xs text-gray-600">Super Hydrating Seaweed + Tremella</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€94</span>
+                                <span class="text-xs text-gray-500">(10)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 - Cloud Bag -->
+                <div class="product-card group cursor-pointer" data-category="accessories" data-price="22">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_3.jpg" alt="Cloud Bag"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_4.jpg" alt="Cloud Bag"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-500 text-white text-xs px-3 py-1.5 font-light">NEW</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Cloud Bag</h3>
+                        <p class="text-xs text-gray-600">Size: Small | Large</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€22</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 4 - All-Over Balm -->
+                <div class="product-card group cursor-pointer" data-category="balms" data-price="24">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_4.jpg" alt="All-Over Balm"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_5.jpg" alt="All-Over Balm"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">All-Over Balm</h3>
+                        <p class="text-xs text-gray-600">Everywhere Essential</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€24</span>
+                                <span class="text-xs text-gray-500">(10)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 5 - The Hydrate + Nourish Duo -->
+                <div class="product-card group cursor-pointer" data-category="sets" data-price="172">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_5.jpg" alt="The Hydrate + Nourish Duo"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_1.jpg" alt="The Hydrate + Nourish Duo"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-red-500 text-white text-xs px-3 py-1.5 font-light">SAVE 20%</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">The Hydrate + Nourish Duo</h3>
+                        <p class="text-xs text-gray-600">Ultimate Skin Nourishment</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€172</span>
+                                <span class="text-xs text-gray-500">(33)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 6 - The Body Travel Essentials -->
+                <div class="product-card group cursor-pointer" data-category="body" data-price="25">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_1.jpg" alt="The Body Travel Essentials"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_2.jpg" alt="The Body Travel Essentials"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-red-500 text-white text-xs px-3 py-1.5 font-light">SAVE €5</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">The Body Travel Essentials</h3>
+                        <p class="text-xs text-gray-600">Nordic Pine, Eucalyptus + Frankincense</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€25</span>
+                                <span class="text-xs text-gray-500">(9)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 7 - Awakening Hand & Body Wash -->
+                <div class="product-card group cursor-pointer" data-category="body" data-price="15">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_2.jpg" alt="Awakening Hand & Body Wash"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_3.jpg" alt="Awakening Hand & Body Wash"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Awakening Hand & Body Wash</h3>
+                        <p class="text-xs text-gray-600">Nordic Pine, Eucalyptus + Frankincense</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€15</span>
+                                <span class="text-xs text-gray-500">(5)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 8 - Eye Elixir -->
+                <div class="product-card group cursor-pointer" data-category="treatments" data-price="62">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_3.jpg" alt="Eye Elixir"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_4.jpg" alt="Eye Elixir"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Eye Elixir</h3>
+                        <p class="text-xs text-gray-600">Awakening Tea Extracts + Brightening Berries</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€62</span>
+                                <span class="text-xs text-gray-500">(2)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 9 - Refills: Hand & Body Wash -->
+                <div class="product-card group cursor-pointer" data-category="refills" data-price="36">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_4.jpg" alt="Refills: Hand & Body Wash"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_5.jpg" alt="Refills: Hand & Body Wash"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-500 text-white text-xs px-3 py-1.5 font-light">REFILL</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Refills: Hand & Body Wash</h3>
+                        <p class="text-xs text-gray-600">For Minimal Environmental Impact</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€36</span>
+                                <span class="text-xs text-gray-500">(5)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 10 - Blemish Treatment -->
+                <div class="product-card group cursor-pointer" data-category="treatments" data-price="28">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_5.jpg" alt="Blemish Treatment"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_1.jpg" alt="Blemish Treatment"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Blemish Treatment</h3>
+                        <p class="text-xs text-gray-600">Fast Acting Spot Treatment</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€28</span>
+                                <span class="text-xs text-gray-500">(3)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 11 - Clarifying Clay Mask -->
+                <div class="product-card group cursor-pointer" data-category="treatments" data-price="38">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_1.jpg" alt="Clarifying Clay Mask"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_2.jpg" alt="Clarifying Clay Mask"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-green-500 text-white text-xs px-3 py-1.5 font-light">NEW</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Clarifying Clay Mask</h3>
+                        <p class="text-xs text-gray-600">Detoxifying Natural Blue Clays</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€38</span>
+                                <span class="text-xs text-gray-500">(1)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 12 - Luxury Necklace -->
+                <div class="product-card group cursor-pointer" data-category="necklaces" data-price="120">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/products/pro_2.jpg" alt="Luxury Necklace"
+                            class="w-full h-80 object-cover object-center transition-opacity duration-300 product-image-main">
+                        <img src="images/products/pro_3.jpg" alt="Luxury Necklace"
+                            class="absolute inset-0 w-full h-80 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                        <div class="absolute top-3 left-3">
+                            <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">BESTSELLER</span>
+                        </div>
+                        <div class="absolute top-3 right-3">
+                            <button class="wishlist-btn text-white hover:text-red-500 transition-colors duration-200">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z">
+                                    </path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <h3 class="text-sm font-medium text-primary">Luxury Necklace</h3>
+                        <p class="text-xs text-gray-600">Elegant Multi-Stone Design</p>
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">€120</span>
+                                <span class="text-xs text-gray-500">(15)</span>
+                            </div>
+                            <button
+                                class="add-to-bag-btn bg-primary text-white px-4 py-2 text-xs font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                                ADD TO BAG
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More Button -->
+            <div class="text-center mt-12">
+                <button id="load-more-btn"
+                    class="bg-primary text-white px-8 py-3 text-sm font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                    LOAD MORE
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-4">LET'S CONNECT</h2>
+            <p class="text-sm sm:text-base text-primary font-light mb-8">
+                Subscribe to our newsletter and get 10% off your first order.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                <input type="email" placeholder="Enter your email"
+                    class="flex-1 px-4 py-3 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-evora-brown focus:border-transparent">
+                <button
+                    class="bg-primary text-white px-6 py-3 text-sm font-medium rounded hover:bg-evora-brown transition-colors duration-200">
+                    Subscribe
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+
+    <!-- Bestsellers Page JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Filter functionality
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const productCards = document.querySelectorAll('.product-card');
+            const productsGrid = document.getElementById('products-grid');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Remove active class from all buttons
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+
+                    const filter = this.getAttribute('data-filter');
+
+                    productCards.forEach(card => {
+                        if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+
+            // Sort functionality
+            const sortSelect = document.getElementById('sort-select');
+
+            sortSelect.addEventListener('change', function () {
+                const sortBy = this.value;
+                const cards = Array.from(productCards);
+
+                cards.sort((a, b) => {
+                    const priceA = parseFloat(a.getAttribute('data-price'));
+                    const priceB = parseFloat(b.getAttribute('data-price'));
+
+                    switch (sortBy) {
+                        case 'price-low-high':
+                            return priceA - priceB;
+                        case 'price-high-low':
+                            return priceB - priceA;
+                        case 'best-selling':
+                            // For best-selling, we could sort by review count or popularity
+                            return 0; // Keep current order for now
+                        case 'new':
+                            // For new items, we could sort by date added
+                            return 0; // Keep current order for now
+                        default:
+                            return 0;
+                    }
+                });
+
+                // Re-append sorted cards
+                cards.forEach(card => {
+                    productsGrid.appendChild(card);
+                });
+            });
+
+            // Wishlist functionality
+            const wishlistBtns = document.querySelectorAll('.wishlist-btn');
+
+            wishlistBtns.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const icon = this.querySelector('svg');
+                    const isFilled = icon.getAttribute('fill') === 'currentColor';
+
+                    if (isFilled) {
+                        icon.setAttribute('fill', 'none');
+                        this.classList.remove('text-red-500');
+                        this.classList.add('text-white');
+                    } else {
+                        icon.setAttribute('fill', 'currentColor');
+                        this.classList.remove('text-white');
+                        this.classList.add('text-red-500');
+                    }
+                });
+            });
+
+            // Add to bag functionality
+            const addToBagBtns = document.querySelectorAll('.add-to-bag-btn');
+
+            addToBagBtns.forEach(btn => {
+                btn.addEventListener('click', function (e) {
+                    e.stopPropagation();
+                    const originalText = this.textContent;
+                    this.textContent = 'ADDED TO BAG';
+                    this.classList.add('bg-green-600');
+
+                    setTimeout(() => {
+                        this.textContent = originalText;
+                        this.classList.remove('bg-green-600');
+                    }, 2000);
+                });
+            });
+
+            // Product card click functionality
+            productCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    // Navigate to product detail page
+                    // window.location.href = 'product-details.html';
+                    console.log('Navigate to product detail page');
+                });
+            });
+
+            // Load more functionality
+            const loadMoreBtn = document.getElementById('load-more-btn');
+            let currentPage = 1;
+
+            loadMoreBtn.addEventListener('click', function () {
+                // Simulate loading more products
+                this.textContent = 'LOADING...';
+                this.disabled = true;
+
+                setTimeout(() => {
+                    // Here you would typically fetch more products from the server
+                    this.textContent = 'LOAD MORE';
+                    this.disabled = false;
+                    currentPage++;
+
+                    if (currentPage >= 3) {
+                        this.style.display = 'none';
+                    }
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ÉVORA - Luxury Jewelry</title>
+    <meta name="description"
+        content="Discover exquisite luxury jewelry at ÉVORA. Handcrafted pieces for every occasion.">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon.svg">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.svg">
+    <meta name="theme-color" content="#5A3E28">
+</head>
+
+<body class="bg-evora-beige">
+
+    <!-- Header Component -->
+    <div id="header"></div>
+
+    <!-- Banner Section -->
+    <section class="banner-section">
+        <img src="images/banners/banner.jpg" alt="ÉVORA Luxury Jewelry Banner"
+            class="w-full h-48 sm:h-64 md:h-80 lg:h-96 xl:h-auto object-cover">
+    </section>
+
+    <!-- Best Sellers Section -->
+    <section class="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-evora-beige">
+        <div>
+            <!-- Section Header -->
+            <div class="text-left mb-8 sm:mb-10 md:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-2">BESTSELLERS</h2>
+                <p class="text-xs sm:text-sm text-primary font-light">Curated edits of bestselling luxury jewelry</p>
+                <a href="bestsellers.html"
+                    class="inline-block mt-4 text-sm text-evora-brown hover:text-primary transition-colors duration-200 underline">
+                    View All Bestsellers →
+                </a>
+            </div>
+
+            <!-- Product Carousel -->
+            <div class="relative">
+                <!-- Navigation Arrows -->
+                <button id="bestseller-left"
+                    class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary p-1.5 sm:p-2 rounded-full shadow-lg transition-all duration-200 opacity-0 group-hover:opacity-100">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+
+                <button id="bestseller-right"
+                    class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary p-1.5 sm:p-2 rounded-full shadow-lg transition-all duration-200">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Carousel Container -->
+                <div class="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-4 pr-4 sm:pr-6 md:pr-8"
+                    id="bestseller-carousel">
+                    <!-- Product Card 1 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden mb-4">
+                                <img src="images/products/pro_1.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_5.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden mb-4">
+                                <img src="images/products/pro_2.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_3.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden mb-4">
+                                <img src="images/products/pro_3.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_4.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden mb-4">
+                                <img src="images/products/pro_4.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_5.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden mb-4">
+                                <img src="images/products/pro_5.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_1.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_1.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_2.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Scroll Progress Bar -->
+                <div class="w-full bg-gray-200 h-0.5 mt-8">
+                    <div class="bg-evora-brown h-0.5 transition-all duration-300" id="scroll-progress"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Category Section -->
+    <section class="pb-8 sm:pb-12 md:pb-16 px-4 sm:px-6 md:px-8 bg-evora-beige category-section">
+        <div>
+
+            <!-- Category Grid -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
+                <!-- Category 1: RINGS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_1.jpg" alt="Rings Collection"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">RINGS</h3>
+                </div>
+
+                <!-- Category 2: BRACELETS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_2.jpg" alt="Bracelets Collection"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">BRACELETS</h3>
+                </div>
+
+                <!-- Category 3: NECKLACES -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_3.jpg" alt="Necklaces Collection"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">NECKLACES</h3>
+                </div>
+
+                <!-- Category 4: EARRINGS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_4.jpg" alt="Earrings Collection"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">EARRINGS</h3>
+                </div>
+
+                <!-- Category 5: WRIST BANDS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_5.jpg" alt="Wrist Bands Collection"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">WRIST BANDS</h3>
+                </div>
+
+                <!-- Category 6: ANKLETS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_6.jpg" alt="Anklets Collection"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">ANKLETS</h3>
+                </div>
+
+                <!-- Category 7: OFFERS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_7.jpg" alt="Special Offers"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">OFFERS</h3>
+                </div>
+
+                <!-- Category 8: COMBOS -->
+                <div class="group cursor-pointer">
+                    <div class="relative overflow-hidden mb-4">
+                        <img src="images/category/cat_8.jpg" alt="Jewelry Combos"
+                            class="w-full h-75 object-cover object-center transition-opacity duration-300">
+                    </div>
+                    <h3 class="text-sm font-medium text-primary">COMBOS</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="py-16 sm:py-20 md:py-24 bg-[#5A3E28]">
+        <div class="px-4 sm:px-6 md:px-8">
+
+            <!-- Reviews Carousel -->
+            <div class="relative overflow-hidden">
+                <!-- Reviews Container -->
+                <div class="flex gap-8 sm:gap-12 md:gap-16" id="reviews-carousel">
+                    <!-- Review 1 -->
+                    <div class="flex-shrink-0 w-80 sm:w-96 md:w-[500px]">
+                        <div class="text-center">
+                            <!-- Review Text -->
+                            <p class="text-white text-base sm:text-lg md:text-xl mb-6 leading-relaxed">"I can't get over the <em>Azalea Necklace</em> by ÉVORA, it makes me look elegant even on casual days and it has quickly become an important part of my jewelry collection!"</p>
+                            <!-- Reviewer -->
+                            <p class="text-white/70 text-sm font-medium">KIRSTEN, VERIFIED BUYER</p>
+                        </div>
+                    </div>
+
+                    <!-- Review 2 -->
+                    <div class="flex-shrink-0 w-80">
+                        <div class="p-6">
+                            <!-- Stars -->
+                            <div class="flex justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <!-- Review Text -->
+                            <p class="text-white text-sm mb-4 text-center">"I loveeee the <em>Multi Stone
+                                    Bracelet</em> in
+                                the summer. I layer this with other pieces and it gives me the most beautiful layered
+                                look with the perfect amount of sparkle. It's amazing for my style."</p>
+                            <!-- Reviewer -->
+                            <p class="text-white/80 text-xs font-medium text-center">RADHIKA, FASHION BLOGGER</p>
+                        </div>
+                    </div>
+
+                    <!-- Review 3 -->
+                    <div class="flex-shrink-0 w-80">
+                        <div class="p-6">
+                            <!-- Stars -->
+                            <div class="flex justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <!-- Review Text -->
+                            <p class="text-white text-sm mb-4 text-center">"I loveeee the <em>Multi Stone
+                                    Bracelet</em> in
+                                the summer. I layer this with other pieces and it gives me the most beautiful layered
+                                look with the perfect amount of sparkle. It's amazing for my style."</p>
+                            <!-- Reviewer -->
+                            <p class="text-white/80 text-xs font-medium text-center">RADHIKA, FASHION BLOGGER</p>
+                        </div>
+                    </div>
+
+                    <!-- Review 4 -->
+                    <div class="flex-shrink-0 w-80">
+                        <div class="p-6">
+                            <!-- Stars -->
+                            <div class="flex justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <!-- Review Text -->
+                            <p class="text-white text-sm mb-4 text-center">"I love the <em>Multi Stone
+                                    Collection</em>! I
+                                have struggled with finding quality jewelry and these pieces don't disappoint at all. I
+                                use these pieces every day and night. I have replaced my old jewelry with these stunning
+                                pieces and I am loving it!"</p>
+                            <!-- Reviewer -->
+                            <p class="text-white/80 text-xs font-medium text-center">WEDNESDAY, VERIFIED BUYER</p>
+                        </div>
+                    </div>
+
+                    <!-- Review 5 -->
+                    <div class="flex-shrink-0 w-80">
+                        <div class="p-6">
+                            <!-- Stars -->
+                            <div class="flex justify-center mb-4">
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z">
+                                    </path>
+                                </svg>
+                            </div>
+                            <!-- Review Text -->
+                            <p class="text-white text-sm mb-4 text-center">"I don't go anywhere without my
+                                <em>ÉVORA
+                                    jewelry</em>. It's my peace of mind and confidence booster."
+                            </p>
+                            <!-- Reviewer -->
+                            <p class="text-white/80 text-xs font-medium text-center">NATASHA, VERIFIED BUYER</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- New Arrivals Section -->
+    <section class="py-8 sm:py-12 md:py-16 px-4 sm:px-6 md:px-8 bg-evora-beige">
+        <div>
+            <!-- Section Header -->
+            <div class="text-left mb-8 sm:mb-10 md:mb-12">
+                <h2 class="text-2xl sm:text-3xl md:text-4xl font-light text-primary mb-2">NEW ARRIVALS</h2>
+                <p class="text-xs sm:text-sm text-primary font-light">Discover our latest luxury jewelry pieces</p>
+            </div>
+
+            <!-- Product Carousel -->
+            <div class="relative">
+                <!-- Carousel Container -->
+                <div class="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-4 pr-4 sm:pr-6 md:pr-8"
+                    id="newarrivals-carousel">
+                    <!-- Product Card 1 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_1.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_2.jpg" alt="Azalea Multi Stone Bar Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Azalea Multi Stone Bar Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 150.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 300.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 2 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_2.jpg" alt="Multi Stone Bracelet"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_3.jpg" alt="Multi Stone Bracelet"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Multi Stone Bracelet</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 200.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 400.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 3 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_3.jpg" alt="Bar Necklace Collection"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_4.jpg" alt="Bar Necklace Collection"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Bar Necklace Collection</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 180.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 360.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 4 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_4.jpg" alt="Elegant Ring Set"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_5.jpg" alt="Elegant Ring Set"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Elegant Ring Set</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 250.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 500.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 5 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_5.jpg" alt="Diamond Stud Earrings"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_1.jpg" alt="Diamond Stud Earrings"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Diamond Stud Earrings</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 300.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 600.00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Product Card 6 -->
+                    <div class="flex-shrink-0 w-75">
+                        <div class="group cursor-pointer">
+                            <div class="relative overflow-hidden">
+                                <img src="images/products/pro_1.jpg" alt="Luxury Chain Necklace"
+                                    class="w-full h-75 object-cover object-center transition-opacity duration-300 product-image-main">
+                                <img src="images/products/pro_2.jpg" alt="Luxury Chain Necklace"
+                                    class="absolute inset-0 w-full h-75 object-cover object-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 product-image-hover">
+                                <div class="absolute top-3 left-3">
+                                    <span class="bg-[#AB8C52] text-primary text-xs px-3 py-1.5 font-light">NEW</span>
+                                </div>
+                            </div>
+                            <h3 class="text-sm font-medium text-primary mb-2">Luxury Chain Necklace</h3>
+                            <div class="flex items-center gap-2">
+                                <span class="text-sm font-semibold text-primary">Rs. 220.00</span>
+                                <span class="text-sm text-gray-500 line-through">Rs. 440.00</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Arrows -->
+                <button id="newarrivals-left"
+                    class="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary p-1.5 sm:p-2 rounded-full shadow-lg transition-all duration-200 opacity-0 group-hover:opacity-100">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7">
+                        </path>
+                    </svg>
+                </button>
+                <button id="newarrivals-right"
+                    class="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 z-10 bg-white/80 hover:bg-white text-primary p-1.5 sm:p-2 rounded-full shadow-lg transition-all duration-200">
+                    <svg class="w-4 h-4 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+
+                <!-- Scroll Progress Bar -->
+                <div class="w-full bg-gray-200 h-0.5 mt-8">
+                    <div class="bg-evora-brown h-0.5 transition-all duration-300" id="newarrivals-scroll-progress"
+                        style="width: 0%"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Evolving Traditions Section -->
+    <section class="relative h-64 sm:h-80 md:h-96 lg:h-[90vh] bg-cover bg-center flex items-center justify-center"
+        style="background-image: url('images/banners/sm_ban.png');">
+        <div class="absolute inset-0 bg-black/20"></div>
+        <div class="relative z-10 px-4 sm:px-6 md:px-8 text-center">
+            <h2 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-white mb-3 sm:mb-4">Evolving
+                Traditions</h2>
+            <p class="text-sm sm:text-base md:text-lg text-white/90 mb-6 sm:mb-8 font-light">Curated edits of
+                bestselling clean beauty</p>
+            <button
+                class="bg-white text-primary px-4 sm:px-5 py-2 hover:bg-gray-100 transition-all duration-300 font-medium text-xs sm:text-sm">
+                SHOP NOW
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer Component -->
+    <div id="footer"></div>
+
+    <!-- Scripts -->
+    <script src="assets/js/components.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script src="assets/js/script.js"></script>
+</body>
+
+</html>
