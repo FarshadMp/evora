@@ -245,11 +245,9 @@ document.addEventListener("DOMContentLoaded", function () {
     console.log("Some elements not found for bestsellers scroll");
   }
 
-  // Best Sellers Carousel Scroll Progress and Navigation
+  // Best Sellers Carousel Scroll Progress
   const bestsellerCarousel = document.getElementById("bestseller-carousel");
   const scrollProgress = document.getElementById("scroll-progress");
-  const bestsellerLeft = document.getElementById("bestseller-left");
-  const bestsellerRight = document.getElementById("bestseller-right");
 
   if (bestsellerCarousel && scrollProgress) {
     // Scroll progress functionality
@@ -260,50 +258,14 @@ document.addEventListener("DOMContentLoaded", function () {
       const progress = (scrollLeft / scrollWidth) * 100;
 
       scrollProgress.style.width = progress + "%";
-
-      // Update arrow visibility
-      updateBestsellerArrows();
     });
-
-    // Arrow navigation functionality
-    if (bestsellerLeft && bestsellerRight) {
-      bestsellerLeft.addEventListener("click", function () {
-        bestsellerCarousel.scrollBy({
-          left: -320, // Scroll by one product width + gap
-          behavior: "smooth",
-        });
-      });
-
-      bestsellerRight.addEventListener("click", function () {
-        bestsellerCarousel.scrollBy({
-          left: 320, // Scroll by one product width + gap
-          behavior: "smooth",
-        });
-      });
-
-      // Function to update arrow visibility
-      function updateBestsellerArrows() {
-        const isAtStart = bestsellerCarousel.scrollLeft <= 0;
-        const isAtEnd =
-          bestsellerCarousel.scrollLeft + bestsellerCarousel.clientWidth >=
-          bestsellerCarousel.scrollWidth - 5;
-
-        bestsellerLeft.style.opacity = isAtStart ? "0" : "1";
-        bestsellerRight.style.opacity = isAtEnd ? "0" : "1";
-      }
-
-      // Initial arrow state
-      updateBestsellerArrows();
-    }
   }
 
-  // New Arrivals Carousel Scroll Progress and Navigation
+  // New Arrivals Carousel Scroll Progress
   const newArrivalsCarousel = document.getElementById("newarrivals-carousel");
   const newArrivalsScrollProgress = document.getElementById(
     "newarrivals-scroll-progress"
   );
-  const newArrivalsLeft = document.getElementById("newarrivals-left");
-  const newArrivalsRight = document.getElementById("newarrivals-right");
 
   if (newArrivalsCarousel && newArrivalsScrollProgress) {
     // Scroll progress functionality
@@ -314,44 +276,10 @@ document.addEventListener("DOMContentLoaded", function () {
       const progress = (scrollLeft / scrollWidth) * 100;
 
       newArrivalsScrollProgress.style.width = progress + "%";
-
-      // Update arrow visibility
-      updateNewArrivalsArrows();
     });
-
-    // Arrow navigation functionality
-    if (newArrivalsLeft && newArrivalsRight) {
-      newArrivalsLeft.addEventListener("click", function () {
-        newArrivalsCarousel.scrollBy({
-          left: -320, // Scroll by one product width + gap
-          behavior: "smooth",
-        });
-      });
-
-      newArrivalsRight.addEventListener("click", function () {
-        newArrivalsCarousel.scrollBy({
-          left: 320, // Scroll by one product width + gap
-          behavior: "smooth",
-        });
-      });
-
-      // Function to update arrow visibility
-      function updateNewArrivalsArrows() {
-        const isAtStart = newArrivalsCarousel.scrollLeft <= 0;
-        const isAtEnd =
-          newArrivalsCarousel.scrollLeft + newArrivalsCarousel.clientWidth >=
-          newArrivalsCarousel.scrollWidth - 5;
-
-        newArrivalsLeft.style.opacity = isAtStart ? "0" : "1";
-        newArrivalsRight.style.opacity = isAtEnd ? "0" : "1";
-      }
-
-      // Initial arrow state
-      updateNewArrivalsArrows();
-    }
   }
 
-  // Reviews Carousel - Manual scroll only (CSS handles auto-scroll)
+  // Reviews Carousel - Continuous auto-scroll with user interaction pause
   const reviewsCarousel = document.getElementById("reviews-carousel");
 
   if (reviewsCarousel) {
@@ -363,9 +291,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     reviewsCarousel.addEventListener("mouseleave", () => {
-      setTimeout(() => {
-        reviewsCarousel.style.animationPlayState = "running";
-      }, 1000);
+      // Resume animation immediately when mouse leaves
+      reviewsCarousel.style.animationPlayState = "running";
     });
 
     // Pause on touch/scroll
@@ -373,25 +300,46 @@ document.addEventListener("DOMContentLoaded", function () {
       reviewsCarousel.style.animationPlayState = "paused";
     });
 
-    reviewsCarousel.addEventListener("scroll", () => {
-      reviewsCarousel.style.animationPlayState = "paused";
+    reviewsCarousel.addEventListener("touchend", () => {
+      // Resume animation after touch ends
       setTimeout(() => {
         reviewsCarousel.style.animationPlayState = "running";
-      }, 2000);
+      }, 1000);
     });
 
-    // Pause on wheel
+    // Pause on manual scroll
+    reviewsCarousel.addEventListener("scroll", () => {
+      reviewsCarousel.style.animationPlayState = "paused";
+      // Resume animation after a short delay
+      setTimeout(() => {
+        reviewsCarousel.style.animationPlayState = "running";
+      }, 1500);
+    });
+
+    // Pause on wheel scroll
     reviewsCarousel.addEventListener(
       "wheel",
       (e) => {
         e.preventDefault();
         reviewsCarousel.style.animationPlayState = "paused";
+        // Resume animation after wheel interaction
         setTimeout(() => {
           reviewsCarousel.style.animationPlayState = "running";
-        }, 2000);
+        }, 1500);
       },
       { passive: false }
     );
+
+    // Ensure animation is running on page load
+    reviewsCarousel.style.animationPlayState = "running";
+
+    // Force animation restart after a short delay to ensure it's working
+    setTimeout(() => {
+      reviewsCarousel.style.animation = "none";
+      reviewsCarousel.offsetHeight; // Trigger reflow
+      reviewsCarousel.style.animation = "scrollReviews 20s linear infinite";
+      reviewsCarousel.style.animationPlayState = "running";
+    }, 100);
   } else {
     console.log("Reviews carousel not found!");
   }
