@@ -98,7 +98,7 @@ $itemCount = getCartItemCount();
                 <!-- Cart Items -->
                 <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
                     <!-- Cart Items List -->
-                    <div class="lg:col-span-2">
+                    <div class="lg:col-span-2 space-y-6">
                         <div class="bg-white shadow-sm border">
                             <div class="p-6 border-b border-gray-200">
                                 <h2 class="text-lg font-medium text-primary">Cart Items (<?php echo $itemCount; ?>)</h2>
@@ -254,7 +254,7 @@ $itemCount = getCartItemCount();
                                         </svg>
                                         <div class="text-xs text-green-800">
                                             <p class="font-medium mb-1">WhatsApp Checkout</p>
-                                            <p>Click the button above to send your order details directly to our WhatsApp. We'll help you complete your purchase!</p>
+                                            <p>Fill in your contact information above and click the button to send your complete order details to our WhatsApp. We'll help you complete your purchase!</p>
                                         </div>
                                     </div>
                                 </div>
@@ -269,6 +269,75 @@ $itemCount = getCartItemCount();
                                     <li>• Express delivery available</li>
                                     <li>• Secure packaging guaranteed</li>
                                 </ul>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information Form -->
+                        <div class="bg-white shadow-sm border">
+                            <div class="p-6 border-b border-gray-200">
+                                <h2 class="text-lg font-medium text-primary">Contact Information</h2>
+                                <p class="text-sm text-gray-600 mt-1">Please provide your details for order processing</p>
+                            </div>
+
+                            <div class="p-6">
+                                <form id="contact-form" class="space-y-4">
+                                    <div>
+                                        <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
+                                        <input type="text" id="first_name" name="first_name" required
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                    </div>
+
+                                    <div>
+                                        <label for="country" class="block text-sm font-medium text-gray-700 mb-1">Country / Region *</label>
+                                        <select id="country" name="country" required
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                            <option value="">Select Country</option>
+                                            <option value="India" selected>India</option>
+                                            <option value="United States">United States</option>
+                                            <option value="United Kingdom">United Kingdom</option>
+                                            <option value="Canada">Canada</option>
+                                            <option value="Australia">Australia</option>
+                                            <option value="Germany">Germany</option>
+                                            <option value="France">France</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+
+                                    <div>
+                                        <label for="street_address" class="block text-sm font-medium text-gray-700 mb-1">Street Address *</label>
+                                        <textarea id="street_address" name="street_address" rows="3" required
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                            placeholder="House/Flat number, Street name, Landmark"></textarea>
+                                    </div>
+
+                                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        <div>
+                                            <label for="city" class="block text-sm font-medium text-gray-700 mb-1">Town / City *</label>
+                                            <input type="text" id="city" name="city" required
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        </div>
+
+                                        <div>
+                                            <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State *</label>
+                                            <input type="text" id="state" name="state" required
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                        </div>
+
+                                        <div>
+                                            <label for="pin_code" class="block text-sm font-medium text-gray-700 mb-1">PIN Code *</label>
+                                            <input type="text" id="pin_code" name="pin_code" required
+                                                class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="123456">
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
+                                        <input type="tel" id="phone" name="phone" required
+                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                            placeholder="+91 98765 43210">
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -389,6 +458,40 @@ $itemCount = getCartItemCount();
                 return;
             }
 
+            // Get contact information from form
+            const contactForm = document.getElementById('contact-form');
+            if (!contactForm) {
+                alert('Contact form not found. Please refresh the page and try again.');
+                return;
+            }
+
+            // Validate required fields
+            const requiredFields = ['first_name', 'country', 'street_address', 'city', 'state', 'pin_code', 'phone'];
+            const missingFields = [];
+
+            requiredFields.forEach(field => {
+                const input = document.getElementById(field);
+                if (!input || !input.value.trim()) {
+                    missingFields.push(field.replace('_', ' '));
+                }
+            });
+
+            if (missingFields.length > 0) {
+                alert('Please fill in all required fields: ' + missingFields.join(', '));
+                return;
+            }
+
+            // Collect contact information
+            const contactInfo = {
+                first_name: document.getElementById('first_name').value.trim(),
+                country: document.getElementById('country').value,
+                street_address: document.getElementById('street_address').value.trim(),
+                city: document.getElementById('city').value.trim(),
+                state: document.getElementById('state').value.trim(),
+                pin_code: document.getElementById('pin_code').value.trim(),
+                phone: document.getElementById('phone').value.trim()
+            };
+
             // Format the message for WhatsApp
             let message = `🛍️ *ÉVORA Luxury Jewelry - New Order*\n\n`;
             message += `*Order Summary:*\n`;
@@ -410,12 +513,13 @@ $itemCount = getCartItemCount();
             }
 
             message += `*Customer Information:*\n`;
-            message += `Please provide your details for order processing.\n\n`;
-            message += `*Contact Information:*\n`;
-            message += `Name: [Please provide]\n`;
-            message += `Phone: [Please provide]\n`;
-            message += `Email: [Please provide]\n`;
-            message += `Address: [Please provide]\n\n`;
+            message += `Name: ${contactInfo.first_name}\n`;
+            message += `Phone: ${contactInfo.phone}\n`;
+            message += `\n`;
+            message += `*Shipping Address:*\n`;
+            message += `${contactInfo.street_address}\n`;
+            message += `${contactInfo.city}, ${contactInfo.state} ${contactInfo.pin_code}\n`;
+            message += `${contactInfo.country}\n\n`;
             message += `*Payment Method:*\n`;
             message += `Please specify your preferred payment method.\n\n`;
             message += `Thank you for choosing ÉVORA Luxury Jewelry! 💎`;

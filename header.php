@@ -237,6 +237,8 @@
 
         <!-- Right Navigation -->
         <nav class="flex items-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12">
+            <a href="#"
+                class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">CONTACT</a>
             <?php
             // Include cart functions for cart icon
             if (file_exists('includes/cart-functions.php')) {
@@ -244,10 +246,6 @@
                 displayCartIcon();
             }
             ?>
-            <a href="#"
-                class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">CONTACT</a>
-            <a href="admin"
-                class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">ADMIN</a>
         </nav>
     </div>
 
@@ -329,15 +327,6 @@
                         </ul>
                     </div>
 
-                    <!-- ADMIN Section -->
-                    <div>
-                        <h3 class="text-sm font-semibold text-primary tracking-widest uppercase mb-4">ADMIN</h3>
-                        <ul class="space-y-3">
-                            <li><a href="admin"
-                                    class="text-sm text-primary hover:text-evora-brown transition-colors duration-200">Banner Manager</a>
-                            </li>
-                        </ul>
-                    </div>
                 </nav>
             </div>
         </div>
