@@ -237,6 +237,8 @@
 
         <!-- Right Navigation -->
         <nav class="flex items-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12">
+            <a href="how-to-order.php"
+                class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">HOW TO ORDER</a>
             <a href="#"
                 class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">CONTACT</a>
             <?php
@@ -309,6 +311,9 @@
                     <div>
                         <h3 class="text-sm font-semibold text-primary tracking-widest uppercase mb-4">SUPPORT</h3>
                         <ul class="space-y-3">
+                            <li><a href="how-to-order.php"
+                                    class="text-sm text-primary hover:text-evora-brown transition-colors duration-200">How to Order</a>
+                            </li>
                             <li><a href="#"
                                     class="text-sm text-primary hover:text-evora-brown transition-colors duration-200">Contact</a>
                             </li>

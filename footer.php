@@ -39,6 +39,7 @@
             <div class="sm:col-span-1 lg:col-span-2">
                 <h3 class="text-base sm:text-lg font-medium text-primary mb-2 sm:mb-3 lg:mb-4">Support</h3>
                 <ul class="space-y-1 sm:space-y-2">
+                    <li><a href="how-to-order.php" class="text-xs sm:text-sm text-primary animated-underline">How to order</a></li>
                     <li><a href="#" class="text-xs sm:text-sm text-primary animated-underline">FAQ</a></li>
                     <li><a href="jewelry-care-guide.php"
                             class="text-xs sm:text-sm text-primary animated-underline">Jewelry Care</a></li>
