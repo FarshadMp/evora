@@ -68,7 +68,7 @@ try {
 
     <!-- Breadcrumb Navigation -->
     <section class="py-4 px-4 sm:px-6 md:px-8 bg-evora-beige">
-        <div class="flex items-center space-x-2 text-xs text-primary">
+        <div class="space-x-2 text-xs text-primary">
             <a href="index.php" class="breadcrumb-link text-primary hover:text-evora-brown transition-colors duration-200 uppercase">HOME</a>
             <span class="text-primary">/</span>
             <a href="bestsellers.php" class="breadcrumb-link text-primary hover:text-evora-brown transition-colors duration-200 uppercase">PRODUCTS</a>

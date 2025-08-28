@@ -130,7 +130,7 @@ function displayBannerCarousel()
         echo '<div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10">';
         foreach ($banners as $index => $banner) {
             $activeClass = $index === 0 ? 'bg-white' : 'bg-white/50';
-            echo '<button class="banner-dot w-1 h-1 rounded-full ' . $activeClass . ' transition-all duration-200" data-slide="' . $index . '"></button>';
+            echo '<button class="banner-dot w-[10px] h-[10px] rounded-full ' . $activeClass . ' transition-all duration-200" data-slide="' . $index . '"></button>';
         }
         echo '</div>';
     }

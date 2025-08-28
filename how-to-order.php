@@ -36,10 +36,10 @@ require_once 'includes/product-functions.php';
 
     <!-- Breadcrumb Navigation -->
     <section class="py-4 px-4 sm:px-6 md:px-8 bg-evora-beige">
-        <div class="flex items-center space-x-2 text-xs text-primary">
-            <a href="index.php" class="text-primary hover:text-evora-brown transition-colors duration-200">HOME</a>
+        <div class="space-x-2 text-xs text-primary">
+            <a href="index.php" class="text-primary hover:text-evora-brown transition-colors duration-200 uppercase">HOME</a>
             <span class="text-primary">/</span>
-            <span class="text-primary font-medium">How to Order</span>
+            <span class="text-primary font-medium uppercase">How to Order</span>
         </div>
     </section>
 
