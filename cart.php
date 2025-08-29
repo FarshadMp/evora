@@ -367,14 +367,18 @@ $itemCount = getCartItemCount();
                                         <select id="country" name="country" required
                                             class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                                             <option value="">Select Country</option>
-                                            <option value="India" selected>India</option>
-                                            <option value="United States">United States</option>
-                                            <option value="United Kingdom">United Kingdom</option>
-                                            <option value="Canada">Canada</option>
-                                            <option value="Australia">Australia</option>
-                                            <option value="Germany">Germany</option>
-                                            <option value="France">France</option>
-                                            <option value="Other">Other</option>
+                                            <option value="India" data-code="+91" selected>India (+91)</option>
+                                            <option value="United States" data-code="+1">United States (+1)</option>
+                                            <option value="United Kingdom" data-code="+44">United Kingdom (+44)</option>
+                                            <option value="Canada" data-code="+1">Canada (+1)</option>
+                                            <option value="Australia" data-code="+61">Australia (+61)</option>
+                                            <option value="Germany" data-code="+49">Germany (+49)</option>
+                                            <option value="France" data-code="+33">France (+33)</option>
+                                            <option value="UAE" data-code="+971">UAE (+971)</option>
+                                            <option value="Saudi Arabia" data-code="+966">Saudi Arabia (+966)</option>
+                                            <option value="Singapore" data-code="+65">Singapore (+65)</option>
+                                            <option value="Malaysia" data-code="+60">Malaysia (+60)</option>
+                                            <option value="Other" data-code="+">Other</option>
                                         </select>
                                     </div>
 
@@ -446,9 +450,16 @@ $itemCount = getCartItemCount();
 
                                     <div>
                                         <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone *</label>
-                                        <input type="tel" id="phone" name="phone" required
-                                            class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                                            placeholder="+91 98765 43210">
+                                        <div class="flex">
+                                            <div class="flex-shrink-0">
+                                                <span id="country-code" class="inline-flex items-center px-3 py-2 border border-r-0 border-gray-300 bg-gray-50 text-gray-500 text-sm rounded-l-md">
+                                                    +91
+                                                </span>
+                                            </div>
+                                            <input type="tel" id="phone" name="phone" required
+                                                class="flex-1 px-3 py-2 border border-gray-300 rounded-r-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                                placeholder="98765 43210">
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -639,6 +650,10 @@ $itemCount = getCartItemCount();
                 pin_code: document.getElementById('pin_code').value.trim(),
                 phone: document.getElementById('phone').value.trim()
             };
+            
+            // Get country code
+            const countryCode = document.getElementById('country-code').textContent;
+            const fullPhoneNumber = countryCode + ' ' + contactInfo.phone;
 
             // Format the message for WhatsApp
             let message = `🛍️ *ÉVORA Luxury Jewelry - New Order*\n\n`;
@@ -667,7 +682,7 @@ $itemCount = getCartItemCount();
 
             message += `*Customer Information:*\n`;
             message += `Name: ${contactInfo.first_name}\n`;
-            message += `Phone: ${contactInfo.phone}\n`;
+            message += `Phone: ${fullPhoneNumber}\n`;
             message += `\n`;
             message += `*Shipping Address:*\n`;
             message += `${contactInfo.street_address}\n`;
@@ -741,15 +756,18 @@ $itemCount = getCartItemCount();
             }, 5000);
         }
 
-        // Update cart count on page load
+                // Update cart count on page load
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
             
             // Initialize state dropdown functionality
             initializeStateDropdown();
+            
+            // Initialize country dropdown functionality
+            initializeCountryDropdown();
         });
-        
-        // Initialize state dropdown with search functionality
+
+                // Initialize state dropdown with search functionality
         function initializeStateDropdown() {
             const stateSelect = document.getElementById('state');
             if (!stateSelect) return;
@@ -762,7 +780,7 @@ $itemCount = getCartItemCount();
                     const options = Array.from(this.options);
                     
                     // Find the first option that starts with the typed character
-                    const matchingOption = options.find(option => 
+                    const matchingOption = options.find(option =>
                         option.text.toLowerCase().startsWith(searchChar) && option.value !== ''
                     );
                     
@@ -779,6 +797,72 @@ $itemCount = getCartItemCount();
             });
             
             stateSelect.addEventListener('blur', function() {
+                this.classList.remove('ring-2', 'ring-primary', 'border-transparent');
+            });
+        }
+        
+        // Initialize country dropdown functionality
+        function initializeCountryDropdown() {
+            const countrySelect = document.getElementById('country');
+            const countryCodeSpan = document.getElementById('country-code');
+            
+            if (!countrySelect || !countryCodeSpan) return;
+            
+            // Update country code when country changes
+            countrySelect.addEventListener('change', function() {
+                const selectedOption = this.options[this.selectedIndex];
+                const countryCode = selectedOption.getAttribute('data-code');
+                
+                if (countryCode) {
+                    countryCodeSpan.textContent = countryCode;
+                    
+                    // Update phone placeholder based on country
+                    const phoneInput = document.getElementById('phone');
+                    if (phoneInput) {
+                        switch (countryCode) {
+                            case '+91': // India
+                                phoneInput.placeholder = '98765 43210';
+                                break;
+                            case '+1': // US/Canada
+                                phoneInput.placeholder = '(555) 123-4567';
+                                break;
+                            case '+44': // UK
+                                phoneInput.placeholder = '7700 900000';
+                                break;
+                            case '+61': // Australia
+                                phoneInput.placeholder = '412 345 678';
+                                break;
+                            case '+49': // Germany
+                                phoneInput.placeholder = '151 12345678';
+                                break;
+                            case '+33': // France
+                                phoneInput.placeholder = '6 12 34 56 78';
+                                break;
+                            case '+971': // UAE
+                                phoneInput.placeholder = '50 123 4567';
+                                break;
+                            case '+966': // Saudi Arabia
+                                phoneInput.placeholder = '50 123 4567';
+                                break;
+                            case '+65': // Singapore
+                                phoneInput.placeholder = '9123 4567';
+                                break;
+                            case '+60': // Malaysia
+                                phoneInput.placeholder = '12-345 6789';
+                                break;
+                            default:
+                                phoneInput.placeholder = 'Enter phone number';
+                        }
+                    }
+                }
+            });
+            
+            // Add focus styles
+            countrySelect.addEventListener('focus', function() {
+                this.classList.add('ring-2', 'ring-primary', 'border-transparent');
+            });
+            
+            countrySelect.addEventListener('blur', function() {
                 this.classList.remove('ring-2', 'ring-primary', 'border-transparent');
             });
         }
