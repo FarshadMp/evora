@@ -93,6 +93,40 @@ html, body {
     -ms-overflow-style: none;
 }
 
+/* Cart Icon Styles */
+.cart-icon {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 10;
+}
+
+.cart-badge {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    min-width: 20px;
+    height: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    line-height: 1;
+    border-radius: 50%;
+    background-color: #ef4444;
+    color: white;
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 20;
+}
+
+/* Ensure cart icon is always visible */
+.cart-icon svg {
+    display: block !important;
+    width: 24px;
+    height: 24px;
+}
+
 /* Reviews scrolling animation */
 @keyframes scroll {
     0% {
@@ -561,27 +595,7 @@ input:-webkit-autofill:active {
     }
 }
 
-/* Touch-friendly improvements */
-@media (hover: none) and (pointer: coarse) {
 
-    /* Larger touch targets for mobile */
-    button, a {
-        min-height: 44px;
-        min-width: 44px;
-    }
-
-    /* Disable hover effects on touch devices */
-    .group:hover .mega-menu {
-        opacity: 0;
-        visibility: hidden;
-    }
-
-    /* Show mega menu on click instead of hover */
-    .group:focus-within .mega-menu {
-        opacity: 1;
-        visibility: visible;
-    }
-}
 
 /* Category Section Hover Effects */
 .category-section .group {
@@ -915,18 +929,7 @@ input:-webkit-autofill:active {
     }
 }
 
-/* Touch-friendly improvements for footer */
-@media (hover: none) and (pointer: coarse) {
-    footer a, footer button {
-        min-height: 44px;
-        min-width: 44px;
-    }
 
-    footer .animated-underline::after {
-        height: 2px;
-        /* Thicker underline for touch */
-    }
-}
 
 /* ========================================
    ENHANCED PRODUCT DETAILS STYLING
@@ -1476,25 +1479,7 @@ input:-webkit-autofill:active {
     color: #8B7355;
 }
 
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
 
-    .action-button:hover,
-    .btn-primary:hover,
-    .btn-secondary:hover,
-    .card:hover,
-    .badge:hover,
-    .product-tag:hover,
-    .related-product-card:hover {
-        transform: none;
-    }
-
-    .action-button:active,
-    .btn-primary:active,
-    .btn-secondary:active {
-        transform: scale(0.98);
-    }
-}
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
@@ -2071,25 +2056,7 @@ input:-webkit-autofill:active {
     }
 }
 
-/* Touch Device Optimizations */
-@media (hover: none) and (pointer: coarse) {
 
-    .action-button:hover,
-    .btn-primary:hover,
-    .btn-secondary:hover,
-    .card:hover,
-    .badge:hover,
-    .product-tag:hover,
-    .related-product-card:hover {
-        transform: none;
-    }
-
-    .action-button:active,
-    .btn-primary:active,
-    .btn-secondary:active {
-        transform: scale(0.98);
-    }
-}
 
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {

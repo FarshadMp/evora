@@ -237,15 +237,20 @@
 
         <!-- Right Navigation -->
         <nav class="flex items-center space-x-4 sm:space-x-6 md:space-x-8 lg:space-x-12">
-            <a href="how-to-order.php"
-                class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">HOW TO ORDER</a>
-            <a href="#"
+            <a href="contact.php"
                 class="hidden lg:block text-primary nav-text text-sm font-light hover:text-evora-brown transition-colors duration-200">CONTACT</a>
             <?php
             // Include cart functions for cart icon
             if (file_exists('includes/cart-functions.php')) {
                 include_once 'includes/cart-functions.php';
                 displayCartIcon();
+            } else {
+                // Fallback cart icon if functions file is not available
+                echo '<a href="cart.php" class="cart-icon relative text-primary hover:text-evora-brown transition-colors duration-200">';
+                echo '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
+                echo '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>';
+                echo '</svg>';
+                echo '</a>';
             }
             ?>
         </nav>

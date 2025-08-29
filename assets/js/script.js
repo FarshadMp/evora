@@ -19,6 +19,66 @@ tailwind.config = {
   },
 };
 
+// Cart functionality
+function updateCartIcon() {
+  fetch("cart-api.php", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: "action=get_count",
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        const cartIcon = document.querySelector(".cart-icon");
+        const cartBadge = document.querySelector(".cart-badge");
+
+        if (cartIcon) {
+          // Remove existing badge if any
+          const existingBadge = cartIcon.querySelector(".cart-badge");
+          if (existingBadge) {
+            existingBadge.remove();
+          }
+
+          // Add new badge if count > 0
+          if (data.count > 0) {
+            const badge = document.createElement("span");
+            badge.className =
+              "cart-badge absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center";
+            badge.textContent = data.count > 99 ? "99+" : data.count;
+            cartIcon.appendChild(badge);
+          }
+        }
+      }
+    })
+    .catch((error) => {
+      console.error("Error updating cart icon:", error);
+    });
+}
+
+// Update cart icon on page load
+document.addEventListener("DOMContentLoaded", function () {
+  updateCartIcon();
+
+  // Update cart icon every 5 seconds to keep it in sync
+  setInterval(updateCartIcon, 5000);
+
+  // Listen for cart updates from other pages
+  window.addEventListener("storage", function (e) {
+    if (e.key === "cart_updated") {
+      updateCartIcon();
+    }
+  });
+});
+
+// Function to trigger cart icon update
+function triggerCartUpdate() {
+  updateCartIcon();
+  // Notify other tabs/windows
+  localStorage.setItem("cart_updated", Date.now());
+}
+
 // Add smooth scrolling for navigation links
 document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
   anchor.addEventListener("click", function (e) {

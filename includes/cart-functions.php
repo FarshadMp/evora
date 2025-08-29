@@ -150,18 +150,42 @@ function displayCartIcon()
     $itemCount = getCartItemCount();
     $hasItems = $itemCount > 0;
 
-    echo '<a href="cart.php" class="relative text-primary hover:text-evora-brown transition-colors duration-200">';
+    echo '<a href="cart.php" class="cart-icon relative text-primary hover:text-evora-brown transition-colors duration-200">';
     echo '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
     echo '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>';
     echo '</svg>';
 
     if ($hasItems) {
-        echo '<span class="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">';
+        echo '<span class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">';
         echo $itemCount > 99 ? '99+' : $itemCount;
         echo '</span>';
     }
 
     echo '</a>';
+}
+
+/**
+ * Update cart icon globally
+ */
+function updateCartIconGlobally()
+{
+    $itemCount = getCartItemCount();
+    $hasItems = $itemCount > 0;
+
+    $html = '<a href="cart.php" class="cart-icon relative text-primary hover:text-evora-brown transition-colors duration-200">';
+    $html .= '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">';
+    $html .= '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"></path>';
+    $html .= '</svg>';
+
+    if ($hasItems) {
+        $html .= '<span class="cart-badge absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">';
+        $html .= $itemCount > 99 ? '99+' : $itemCount;
+        $html .= '</span>';
+    }
+
+    $html .= '</a>';
+
+    return $html;
 }
 
 /**
@@ -229,13 +253,33 @@ function handleCartAjax()
 
     switch ($action) {
         case 'add':
-            return addToCart($product_id, $quantity);
+            $result = addToCart($product_id, $quantity);
+            if ($result['success']) {
+                $result['cart_count'] = getCartItemCount();
+                $result['cart_total'] = getCartTotal();
+            }
+            return $result;
         case 'update':
-            return updateCartQuantity($product_id, $quantity);
+            $result = updateCartQuantity($product_id, $quantity);
+            if ($result['success']) {
+                $result['cart_count'] = getCartItemCount();
+                $result['cart_total'] = getCartTotal();
+            }
+            return $result;
         case 'remove':
-            return removeFromCart($product_id);
+            $result = removeFromCart($product_id);
+            if ($result['success']) {
+                $result['cart_count'] = getCartItemCount();
+                $result['cart_total'] = getCartTotal();
+            }
+            return $result;
         case 'clear':
-            return clearCart();
+            $result = clearCart();
+            if ($result['success']) {
+                $result['cart_count'] = getCartItemCount();
+                $result['cart_total'] = getCartTotal();
+            }
+            return $result;
         case 'get_count':
             return ['success' => true, 'count' => getCartItemCount()];
         case 'get_total':

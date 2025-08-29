@@ -307,6 +307,11 @@ try {
                         // Update cart count in header
                         updateCartCount();
 
+                        // Trigger cart update for other pages
+                        if (typeof triggerCartUpdate === 'function') {
+                            triggerCartUpdate();
+                        }
+
                         // Reset button after 2 seconds
                         setTimeout(() => {
                             button.textContent = originalText;
@@ -329,31 +334,37 @@ try {
         }
 
         function updateCartCount() {
-            fetch('cart-api.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: 'action=get_count'
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Update cart count in header if it exists
-                        const cartCountElement = document.querySelector('.cart-count');
-                        if (cartCountElement) {
-                            if (data.count > 0) {
-                                cartCountElement.textContent = data.count > 99 ? '99+' : data.count;
-                                cartCountElement.style.display = 'flex';
-                            } else {
-                                cartCountElement.style.display = 'none';
+            // Use the global updateCartIcon function if available
+            if (typeof updateCartIcon === 'function') {
+                updateCartIcon();
+            } else {
+                // Fallback to the original method
+                fetch('cart-api.php', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                        },
+                        body: 'action=get_count'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Update cart count in header if it exists
+                            const cartCountElement = document.querySelector('.cart-count');
+                            if (cartCountElement) {
+                                if (data.count > 0) {
+                                    cartCountElement.textContent = data.count > 99 ? '99+' : data.count;
+                                    cartCountElement.style.display = 'flex';
+                                } else {
+                                    cartCountElement.style.display = 'none';
+                                }
                             }
                         }
-                    }
-                })
-                .catch(error => {
-                    console.error('Error updating cart count:', error);
-                });
+                    })
+                    .catch(error => {
+                        console.error('Error updating cart count:', error);
+                    });
+            }
         }
     </script>
 
