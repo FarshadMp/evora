@@ -138,6 +138,32 @@ html, body {
     transition: box-shadow 0.3s ease;
 }
 
+/* State dropdown styles */
+select[name="state"] {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select[name="state"]:focus {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%235A3E28' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* Custom scrollbar for dropdown */
+select[name="state"] option {
+    padding: 8px 12px;
+}
+
+/* Hover effect for dropdown options */
+select[name="state"] option:hover {
+    background-color: #f3f4f6;
+}
+
 /* Reviews scrolling animation */
 @keyframes scroll {
     0% {

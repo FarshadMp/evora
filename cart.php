@@ -394,8 +394,46 @@ $itemCount = getCartItemCount();
 
                                         <div>
                                             <label for="state" class="block text-sm font-medium text-gray-700 mb-1">State *</label>
-                                            <input type="text" id="state" name="state" required
+                                            <select id="state" name="state" required
                                                 class="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                                                <option value="">Select State</option>
+                                                <option value="Kerala">Kerala</option>
+                                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                                <option value="Assam">Assam</option>
+                                                <option value="Bihar">Bihar</option>
+                                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                                <option value="Goa">Goa</option>
+                                                <option value="Gujarat">Gujarat</option>
+                                                <option value="Haryana">Haryana</option>
+                                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                                <option value="Jharkhand">Jharkhand</option>
+                                                <option value="Karnataka">Karnataka</option>
+                                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                                <option value="Maharashtra">Maharashtra</option>
+                                                <option value="Manipur">Manipur</option>
+                                                <option value="Meghalaya">Meghalaya</option>
+                                                <option value="Mizoram">Mizoram</option>
+                                                <option value="Nagaland">Nagaland</option>
+                                                <option value="Odisha">Odisha</option>
+                                                <option value="Punjab">Punjab</option>
+                                                <option value="Rajasthan">Rajasthan</option>
+                                                <option value="Sikkim">Sikkim</option>
+                                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                                <option value="Telangana">Telangana</option>
+                                                <option value="Tripura">Tripura</option>
+                                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                                <option value="Uttarakhand">Uttarakhand</option>
+                                                <option value="West Bengal">West Bengal</option>
+                                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                                <option value="Chandigarh">Chandigarh</option>
+                                                <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+                                                <option value="Delhi">Delhi</option>
+                                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                                <option value="Ladakh">Ladakh</option>
+                                                <option value="Lakshadweep">Lakshadweep</option>
+                                                <option value="Puducherry">Puducherry</option>
+                                            </select>
                                         </div>
 
                                         <div>
@@ -559,34 +597,34 @@ $itemCount = getCartItemCount();
                 // Scroll to the contact form section
                 const contactFormSection = document.getElementById('contact-form-section');
                 if (contactFormSection) {
-                    contactFormSection.scrollIntoView({ 
-                        behavior: 'smooth', 
-                        block: 'start' 
+                    contactFormSection.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
                     });
-                    
-                                    // Add a subtle highlight effect to the form
-                contactFormSection.classList.add('form-section-highlight');
-                
-                // Remove the highlight after 2 seconds
-                setTimeout(() => {
-                    contactFormSection.classList.remove('form-section-highlight');
-                }, 2000);
+
+                    // Add a subtle highlight effect to the form
+                    contactFormSection.classList.add('form-section-highlight');
+
+                    // Remove the highlight after 2 seconds
+                    setTimeout(() => {
+                        contactFormSection.classList.remove('form-section-highlight');
+                    }, 2000);
                 }
-                
+
                 // Focus on the first missing field if available
                 if (firstMissingField) {
                     setTimeout(() => {
                         firstMissingField.focus();
                         firstMissingField.classList.add('form-field-error');
-                        
+
                         // Remove the error styling after 3 seconds
                         setTimeout(() => {
                             firstMissingField.classList.remove('form-field-error');
                         }, 3000);
                     }, 500);
                 }
-                
-                                // Show a more user-friendly notification
+
+                // Show a more user-friendly notification
                 showNotification('Please fill in all required fields: ' + missingFields.join(', '), 'error');
                 return;
             }
@@ -663,7 +701,7 @@ $itemCount = getCartItemCount();
             // Create notification element
             const notification = document.createElement('div');
             notification.className = `notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 translate-x-full`;
-            
+
             // Set background color based on type
             if (type === 'error') {
                 notification.className += ' bg-red-500 text-white';
@@ -706,7 +744,44 @@ $itemCount = getCartItemCount();
         // Update cart count on page load
         document.addEventListener('DOMContentLoaded', function() {
             updateCartCount();
+            
+            // Initialize state dropdown functionality
+            initializeStateDropdown();
         });
+        
+        // Initialize state dropdown with search functionality
+        function initializeStateDropdown() {
+            const stateSelect = document.getElementById('state');
+            if (!stateSelect) return;
+            
+            // Add search functionality
+            stateSelect.addEventListener('keydown', function(e) {
+                if (e.key.length === 1) {
+                    // User typed a character, search for matching options
+                    const searchChar = e.key.toLowerCase();
+                    const options = Array.from(this.options);
+                    
+                    // Find the first option that starts with the typed character
+                    const matchingOption = options.find(option => 
+                        option.text.toLowerCase().startsWith(searchChar) && option.value !== ''
+                    );
+                    
+                    if (matchingOption) {
+                        matchingOption.selected = true;
+                        e.preventDefault();
+                    }
+                }
+            });
+            
+            // Add focus styles
+            stateSelect.addEventListener('focus', function() {
+                this.classList.add('ring-2', 'ring-primary', 'border-transparent');
+            });
+            
+            stateSelect.addEventListener('blur', function() {
+                this.classList.remove('ring-2', 'ring-primary', 'border-transparent');
+            });
+        }
     </script>
 </body>
 
