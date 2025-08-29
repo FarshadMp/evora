@@ -96,11 +96,11 @@ $itemCount = getCartItemCount();
                 </div>
             <?php else: ?>
                 <!-- Cart Items -->
-                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                     <!-- Cart Items List -->
-                    <div class="lg:col-span-2 space-y-6">
+                    <div class="lg:col-span-2 space-y-4 sm:space-y-6">
                         <div class="bg-white shadow-sm border">
-                            <div class="p-6 border-b border-gray-200">
+                            <div class="p-4 sm:p-6 border-b border-gray-200">
                                 <h2 class="text-lg font-medium text-primary">Cart Items (<?php echo $itemCount; ?>)</h2>
                             </div>
 
@@ -109,8 +109,83 @@ $itemCount = getCartItemCount();
 
                                 <div class="divide-y divide-gray-200">
                                     <?php foreach ($cartItems as $product_id => $item): ?>
-                                        <div class="p-6">
-                                            <div class="flex items-center space-x-4">
+                                        <div class="p-4 sm:p-6">
+                                            <!-- Mobile Layout -->
+                                            <div class="block sm:hidden">
+                                                <div class="flex items-start space-x-3 mb-4">
+                                                    <!-- Product Image -->
+                                                    <div class="flex-shrink-0">
+                                                        <img src="<?php echo htmlspecialchars($item['image']); ?>"
+                                                            alt="<?php echo htmlspecialchars($item['name']); ?>"
+                                                            class="w-16 h-16 sm:w-20 sm:h-20 object-cover rounded">
+                                                    </div>
+
+                                                    <!-- Product Details -->
+                                                    <div class="flex-1 min-w-0">
+                                                        <h3 class="text-sm font-medium text-primary">
+                                                            <a href="product-details.php?id=<?php echo $item['id']; ?>"
+                                                                class="hover:text-evora-brown transition-colors duration-200">
+                                                                <?php echo htmlspecialchars($item['name']); ?>
+                                                            </a>
+                                                        </h3>
+                                                        <p class="text-sm text-gray-500 mt-1">
+                                                            Price: Rs. <?php echo number_format($item['price'], 2); ?>
+                                                        </p>
+                                                        <?php if ($item['status'] !== 'NORMAL'): ?>
+                                                            <p class="text-xs text-red-600 mt-1">
+                                                                Status: <?php echo $item['status']; ?>
+                                                            </p>
+                                                        <?php endif; ?>
+                                                    </div>
+
+                                                    <!-- Remove Button -->
+                                                    <button type="button"
+                                                        onclick="removeItem(<?php echo $product_id; ?>)"
+                                                        class="text-gray-400 hover:text-red-500 transition-colors duration-200 flex-shrink-0">
+                                                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+
+                                                <!-- Quantity Controls - Mobile -->
+                                                <div class="flex items-center justify-between">
+                                                    <div class="flex items-center space-x-2">
+                                                        <button type="button"
+                                                            onclick="updateQuantity(<?php echo $product_id; ?>, -1)"
+                                                            class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors duration-200">
+                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 12H4"></path>
+                                                            </svg>
+                                                        </button>
+
+                                                        <input type="number"
+                                                            name="quantities[<?php echo $product_id; ?>]"
+                                                            value="<?php echo $item['quantity']; ?>"
+                                                            min="1"
+                                                            class="w-16 text-center border border-gray-300 rounded py-1 text-sm"
+                                                            onchange="updateQuantity(<?php echo $product_id; ?>, 0, this.value)">
+
+                                                        <button type="button"
+                                                            onclick="updateQuantity(<?php echo $product_id; ?>, 1)"
+                                                            class="w-8 h-8 border border-gray-300 rounded-full flex items-center justify-center hover:bg-gray-50 transition-colors duration-200">
+                                                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path>
+                                                            </svg>
+                                                        </button>
+                                                    </div>
+
+                                                    <!-- Item Total - Mobile -->
+                                                    <div class="text-right">
+                                                        <p class="text-sm font-semibold text-primary">
+                                                            Rs. <?php echo number_format($item['price'] * $item['quantity'], 2); ?>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <!-- Desktop Layout -->
+                                            <div class="hidden sm:flex items-center space-x-4">
                                                 <!-- Product Image -->
                                                 <div class="flex-shrink-0">
                                                     <img src="<?php echo htmlspecialchars($item['image']); ?>"
@@ -183,17 +258,17 @@ $itemCount = getCartItemCount();
                                 </div>
 
                                 <!-- Cart Actions -->
-                                <div class="p-6 border-t border-gray-200">
-                                    <div class="flex justify-between items-center">
+                                <div class="p-4 sm:p-6 border-t border-gray-200">
+                                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center space-y-3 sm:space-y-0">
                                         <button type="submit"
-                                            class="bg-gray-100 text-primary px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200 text-sm font-medium">
+                                            class="w-full sm:w-auto bg-gray-100 text-primary px-4 py-2 rounded-md hover:bg-gray-200 transition-colors duration-200 text-sm font-medium">
                                             Update Cart
                                         </button>
 
-                                        <form method="POST" class="inline" onsubmit="return confirm('Are you sure you want to clear your cart?')">
+                                        <form method="POST" class="w-full sm:w-auto" onsubmit="return confirm('Are you sure you want to clear your cart?')">
                                             <input type="hidden" name="action" value="clear_cart">
                                             <button type="submit"
-                                                class="text-red-600 hover:text-red-800 transition-colors duration-200 text-sm font-medium">
+                                                class="w-full sm:w-auto text-red-600 hover:text-red-800 transition-colors duration-200 text-sm font-medium">
                                                 Clear Cart
                                             </button>
                                         </form>
@@ -205,7 +280,7 @@ $itemCount = getCartItemCount();
 
                     <!-- Order Summary -->
                     <div class="lg:col-span-1">
-                        <div class="bg-white shadow-sm border p-6 sticky top-4">
+                        <div class="bg-white shadow-sm border p-4 sm:p-6 sticky top-4">
                             <h2 class="text-lg font-medium text-primary mb-4">Order Summary</h2>
 
                             <div class="space-y-3 mb-6">
@@ -273,13 +348,13 @@ $itemCount = getCartItemCount();
                         </div>
 
                         <!-- Contact Information Form -->
-                        <div class="bg-white shadow-sm border">
-                            <div class="p-6 border-b border-gray-200">
+                        <div class="bg-white shadow-sm border mt-4 sm:mt-6" id="contact-form-section">
+                            <div class="p-4 sm:p-6 border-b border-gray-200">
                                 <h2 class="text-lg font-medium text-primary">Contact Information</h2>
                                 <p class="text-sm text-gray-600 mt-1">Please provide your details for order processing</p>
                             </div>
 
-                            <div class="p-6">
+                            <div class="p-4 sm:p-6">
                                 <form id="contact-form" class="space-y-4">
                                     <div>
                                         <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name *</label>
@@ -383,12 +458,12 @@ $itemCount = getCartItemCount();
                         // Update cart count in header if it exists
                         updateCartCount();
                     } else {
-                        alert('Error updating cart: ' + data.message);
+                        showNotification('Error updating cart: ' + data.message, 'error');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Error updating cart. Please try again.');
+                    showNotification('Error updating cart. Please try again.', 'error');
                 });
         }
 
@@ -410,12 +485,12 @@ $itemCount = getCartItemCount();
                         // Reload the page to update the cart display
                         location.reload();
                     } else {
-                        alert('Error removing item: ' + data.message);
+                        showNotification('Error removing item: ' + data.message, 'error');
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Error removing item. Please try again.');
+                    showNotification('Error removing item. Please try again.', 'error');
                 });
         }
 
@@ -454,30 +529,65 @@ $itemCount = getCartItemCount();
             const itemCount = <?php echo $itemCount; ?>;
 
             if (itemCount === 0) {
-                alert('Your cart is empty. Please add items before checkout.');
+                showNotification('Your cart is empty. Please add items before checkout.', 'error');
                 return;
             }
 
             // Get contact information from form
             const contactForm = document.getElementById('contact-form');
             if (!contactForm) {
-                alert('Contact form not found. Please refresh the page and try again.');
+                showNotification('Contact form not found. Please refresh the page and try again.', 'error');
                 return;
             }
 
             // Validate required fields
             const requiredFields = ['first_name', 'country', 'street_address', 'city', 'state', 'pin_code', 'phone'];
             const missingFields = [];
+            let firstMissingField = null;
 
             requiredFields.forEach(field => {
                 const input = document.getElementById(field);
                 if (!input || !input.value.trim()) {
                     missingFields.push(field.replace('_', ' '));
+                    if (!firstMissingField) {
+                        firstMissingField = input;
+                    }
                 }
             });
 
             if (missingFields.length > 0) {
-                alert('Please fill in all required fields: ' + missingFields.join(', '));
+                // Scroll to the contact form section
+                const contactFormSection = document.getElementById('contact-form-section');
+                if (contactFormSection) {
+                    contactFormSection.scrollIntoView({ 
+                        behavior: 'smooth', 
+                        block: 'start' 
+                    });
+                    
+                                    // Add a subtle highlight effect to the form
+                contactFormSection.classList.add('form-section-highlight');
+                
+                // Remove the highlight after 2 seconds
+                setTimeout(() => {
+                    contactFormSection.classList.remove('form-section-highlight');
+                }, 2000);
+                }
+                
+                // Focus on the first missing field if available
+                if (firstMissingField) {
+                    setTimeout(() => {
+                        firstMissingField.focus();
+                        firstMissingField.classList.add('form-field-error');
+                        
+                        // Remove the error styling after 3 seconds
+                        setTimeout(() => {
+                            firstMissingField.classList.remove('form-field-error');
+                        }, 3000);
+                    }, 500);
+                }
+                
+                                // Show a more user-friendly notification
+                showNotification('Please fill in all required fields: ' + missingFields.join(', '), 'error');
                 return;
             }
 
@@ -501,10 +611,15 @@ $itemCount = getCartItemCount();
 
             let itemNumber = 1;
             for (const [productId, item] of Object.entries(cartItems)) {
+                // Get current page URL to construct product link
+                const currentUrl = window.location.origin + window.location.pathname.replace('cart.php', '');
+                const productLink = `${currentUrl}product-details.php?id=${item.id}`;
+
                 message += `${itemNumber}. *${item.name}*\n`;
                 message += `   Quantity: ${item.quantity}\n`;
                 message += `   Price: Rs. ${item.price.toLocaleString('en-IN', {minimumFractionDigits: 2})}\n`;
                 message += `   Subtotal: Rs. ${(item.price * item.quantity).toLocaleString('en-IN', {minimumFractionDigits: 2})}\n`;
+                message += `   Link: ${productLink}\n`;
                 if (item.status !== 'NORMAL') {
                     message += `   Status: ${item.status}\n`;
                 }
@@ -535,6 +650,57 @@ $itemCount = getCartItemCount();
 
             // Open WhatsApp in new tab
             window.open(whatsappUrl, '_blank');
+        }
+
+        // Notification system
+        function showNotification(message, type = 'info') {
+            // Remove any existing notifications
+            const existingNotification = document.querySelector('.notification');
+            if (existingNotification) {
+                existingNotification.remove();
+            }
+
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.className = `notification fixed top-4 right-4 z-50 p-4 rounded-lg shadow-lg max-w-sm transform transition-all duration-300 translate-x-full`;
+            
+            // Set background color based on type
+            if (type === 'error') {
+                notification.className += ' bg-red-500 text-white';
+            } else if (type === 'success') {
+                notification.className += ' bg-green-500 text-white';
+            } else {
+                notification.className += ' bg-blue-500 text-white';
+            }
+
+            notification.innerHTML = `
+                <div class="flex items-center justify-between">
+                    <span class="text-sm font-medium">${message}</span>
+                    <button onclick="this.parentElement.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+            `;
+
+            // Add to page
+            document.body.appendChild(notification);
+
+            // Animate in
+            setTimeout(() => {
+                notification.classList.remove('translate-x-full');
+            }, 100);
+
+            // Auto remove after 5 seconds
+            setTimeout(() => {
+                notification.classList.add('translate-x-full');
+                setTimeout(() => {
+                    if (notification.parentElement) {
+                        notification.remove();
+                    }
+                }, 300);
+            }, 5000);
         }
 
         // Update cart count on page load

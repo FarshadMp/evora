@@ -127,6 +127,17 @@ html, body {
     height: 24px;
 }
 
+/* Form validation styles */
+.form-field-error {
+    border-color: #ef4444 !important;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1) !important;
+}
+
+.form-section-highlight {
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.3) !important;
+    transition: box-shadow 0.3s ease;
+}
+
 /* Reviews scrolling animation */
 @keyframes scroll {
     0% {
